@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корзина | AUTOSHINE</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>AUTO<span>SHINE</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Главная</a></li>
+                    <li><a href="fog_lights.html">Фонари</a></li>
+                    <li><a href="tweeters.html">Твитеры</a></li>
+                    <li><a href="led_strips.html">LED ленты</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> <span id="cart-count">0</span></a>
+                <div class="hamburger" id="hamburger">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Содержимое корзины -->
+    <section class="cart-section">
+        <div class="container">
+            <h1 class="section-title">Ваша корзина</h1>
+            
+            <div class="cart-empty" id="cart-empty">
+                <i class="fas fa-shopping-cart"></i>
+                <h2>Ваша корзина пуста</h2>
+                <p>Перейдите в каталог, чтобы добавить товары</p>
+                <a href="../index.html#catalog" class="btn">Перейти в каталог</a>
+            </div>
+            
+            <div class="cart-content" id="cart-content">
+                <div class="cart-items">
+                    <!-- Товары будут добавляться динамически -->
+                </div>
+                
+                <div class="cart-summary">
+                    <h3>Итого</h3>
+                    <div class="summary-row">
+                        <span>Товары (3)</span>
+                        <span id="subtotal">12 970 ₽</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Доставка</span>
+                        <span id="delivery">500 ₽</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Общая сумма</span>
+                        <span id="total">13 470 ₽</span>
+                    </div>
+                    <button class="btn checkout-btn" id="checkout-btn">Оформить заказ</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Форма оформления заказа (скрыта по умолчанию) -->
+    <section class="checkout-section" id="checkout-section">
+        <div class="container">
+            <h2 class="section-title">Оформление заказа</h2>
+            
+            <div class="checkout-grid">
+                <div class="checkout-form">
+                    <h3>Контактные данные</h3>
+                    <form id="order-form">
+                        <div class="form-group">
+                            <label for="name">ФИО*</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Телефон*</label>
+                            <input type="tel" id="phone" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email*</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="address">Адрес доставки*</label>
+                            <textarea id="address" required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="comment">Комментарий к заказу</label>
+                            <textarea id="comment"></textarea>
+                        </div>
+                        
+                        <h3>Способ оплаты</h3>
+                        <div class="payment-methods">
+                            <label class="payment-method">
+                                <input type="radio" name="payment" value="card" checked>
+                                <i class="fas fa-credit-card"></i>
+                                <span>Банковская карта</span>
+                            </label>
+                            
+                            <label class="payment-method">
+                                <input type="radio" name="payment" value="cash">
+                                <i class="fas fa-money-bill-wave"></i>
+                                <span>Наличными при получении</span>
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="btn submit-order-btn">Подтвердить заказ</button>
+                    </form>
+                </div>
+                
+                <div class="order-summary">
+                    <h3>Ваш заказ</h3>
+                    <div class="order-items">
+                        <!-- Товары будут добавляться динамически -->
+                    </div>
+                    <div class="order-totals">
+                        <div class="summary-row">
+                            <span>Товары</span>
+                            <span id="order-subtotal">12 970 ₽</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Доставка</span>
+                            <span id="order-delivery">500 ₽</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span>Общая сумма</span>
+                            <span id="order-total">13 470 ₽</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Сообщение об успешном заказе (скрыто по умолчанию) -->
+    <section class="order-success" id="order-success">
+        <div class="container">
+            <div class="success-content">
+                <i class="fas fa-check-circle"></i>
+                <h2>Заказ успешно оформлен!</h2>
+                <p>Номер вашего заказа: <strong id="order-number">#12345</strong></p>
+                <p>Мы свяжемся с вами в ближайшее время для подтверждения заказа.</p>
+                <a href="../index.html" class="btn">Вернуться на главную</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer>
+        <div class="container">
+            <div class="footer-col">
+                <h3>AUTO<span>SHINE</span></h3>
+                <p>Ваш надежный партнер в мире автомобильных аксессуаров и освещения.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-vk"></i></a>
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Каталог</h3>
+                <ul>
+                    <li><a href="fog_lights.html">Габаритные фонари</a></li>
+                    <li><a href="tweeters.html">Твитеры</a></li>
+                    <li><a href="led_strips.html">LED ленты</a></li>
+                    <li><a href="#">Фары</a></li>
+                    <li><a href="#">Датчики</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Помощь</h3>
+                <ul>
+                    <li><a href="#">Оплата и доставка</a></li>
+                    <li><a href="#">Возврат товара</a></li>
+                    <li><a href="#">Гарантия</a></li>
+                    <li><a href="#">Вопрос-ответ</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Подписка</h3>
+                <p>Подпишитесь на наши новости и акции</p>
+                <form class="subscribe-form">
+                    <input type="email" placeholder="Ваш email">
+                    <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+        <div class="copyright">
+            <div class="container">
+                <p>&copy; 2025 AUTOSHINE. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/cart.js"></script>
+    <script src="../assets/js/script.js"></script>
+</body>
+</html>
